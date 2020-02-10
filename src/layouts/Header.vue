@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <div>Header</div>
-  </div>
+  <div class="header">Header</div>
 </template>
 <script>
 export default {};
 </script>
-<style></style>
+<style scpoed>
+.header {
+  float: right;
+}
+</style>

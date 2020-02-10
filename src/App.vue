@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <!-- <a-button type="primary">Primary</a-button> -->
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/dashboard/analysis">analysis</router-link>|
       <router-link to="/form">form</router-link>
-    </div>
+    </div>-->
     <router-view />
   </div>
 </template>
