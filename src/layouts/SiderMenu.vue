@@ -28,6 +28,8 @@
  * SubMenu1.vue https://github.com/vueComponent/ant-design-vue/blob/master/components/menu/demo/SubMenu1.vue
  * */
 import SubMenu from "./SubMenu";
+//引入auth中的方法
+import { check } from "../utils/auth";
 export default {
   props: {
     theme: {
@@ -62,7 +64,13 @@ export default {
     },
     getMenuData(routes = [], parentKeys = [], selectedKey) {
       const menuData = [];
-      routes.forEach(item => {
+      //没权限菜单不显示>>
+      for (let item of routes) {
+        //
+        if (item.meta && item.meta.authority && !check(item.meta.authority)) {
+          break;
+        }
+        //路由菜单对应
         if (item.name && !item.hideInMenu) {
           // 路由菜单对应
           this.openKeysMap[item.path] = parentKeys;
@@ -92,7 +100,26 @@ export default {
             ...this.getMenuData(item.children, [...parentKeys, item.path])
           );
         }
-      });
+      }
+      //<<
+      // routes.forEach(item => {
+      //   if (item.name && !item.hideInMenu) {
+      //     // 路由菜单对应
+      //     this.openKeysMap[item.path] = parentKeys;
+      //     this.selectedKeysMap[item.path] = [selectedKey || item.path];
+      //     //
+      //     const newItem = { ...item };
+      //     delete newItem.children;
+      //     if (item.children && !item.hideChildrenInMenu) {
+      //       newItem.children = this.getMenuData(item.children, [...parentKeys, item.path]);
+      //     } else {
+      //       this.getMenuData(item.children, selectedKey ? parentKeys : [...parentKeys, item.path], selectedKey || item.path);
+      //     }
+      //     menuData.push(newItem);
+      //   } else if (!item.hideInMenu && !item.hideChildrenInMenu && item.children) {
+      //     menuData.push(...this.getMenuData(item.children, [...parentKeys, item.path]));
+      //   }
+      // });
       return menuData;
     }
   }
