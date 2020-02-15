@@ -14,7 +14,9 @@
       </a-layout-sider>
       <a-layout>
         <a-layout-header style="background: #fff; padding: 0">
+          <!-- 更加精细化的权限设计：权限指令 v-auth-->
           <a-icon
+            v-auth="['user']"
             class="trigger"
             :type="collapsed ? 'menu-unfold' : 'menu-fold'"
             @click="collapsed = !collapsed"
@@ -29,7 +31,10 @@
         </a-layout-footer>
       </a-layout>
     </a-layout>
-    <SettingDrawer />
+    <!-- 更加精细化的权限设计：权限组件 -->
+    <Authorized :authority="['admin']">
+      <SettingDrawer />
+    </Authorized>
   </div>
 </template>
 <script>
