@@ -18,8 +18,8 @@ module.exports = {
                     if (req.headers.accept.indexOf('html') !== -1) {
                         console.log('Skipping proxy for browser request.');
                         return '/index.html';
-                    } else {
-                        const name = req.path.split('/api/')[1].split('/').join('_');//mock下面的文件名称
+                    } else if (process.env.MOCK !== "none") {
+                        const name = req.path && req.path.split('/api/')[1] && req.path.split('/api/')[1].split('/').join('_');//mock下面的文件名称
                         const mock = require(`./mock/${name}`);//引入mock文件
                         const result = mock(req.method);
                         delete require.cache[require.resolve(`./mock/${name}`)];//清理缓存，为了下次能拿到最新的数据
