@@ -14,16 +14,16 @@ export default {
     }
   },
   watch: {
-    option(val) {
-      this.chart.setOption(val);
-    }
-    // options: {
-    //   //深度监听,比较耗性能
-    //   deep: true,
-    //   handler(val) {
-    //     this.chart.setOption(val);
-    //   }
+    // option(val) {
+    //   this.chart.setOption(val);
     // }
+    options: {
+      //深度监听,比较耗性能
+      deep: true,
+      handler(val) {
+        this.chart.setOption(val);
+      }
+    }
   },
   created() {
     //页面一改变resize方法就会被触发多次,此时可进行防抖,以提高性能
