@@ -9,7 +9,8 @@ import {
   Radio,
   Menu,
   Form,
-  Input
+  Input,
+  Select
 } from "ant-design-vue"; //借助babel-plugin-import按需引入
 import Authorized from "./components/Authorized"; //引入权限控制组件
 import Auth from "./directives/auth"; //引入权限指令
@@ -30,6 +31,7 @@ Vue.component("Authorized", Authorized); //全局注册
 Vue.use(Auth); //注册指令
 Vue.use(Form);
 Vue.use(Input);
+Vue.use(Select);
 new Vue({
   router,
   store,

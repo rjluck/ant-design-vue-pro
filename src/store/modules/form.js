@@ -7,7 +7,11 @@ Vue.use(Vuex);
 
 const state = {
   step: {
-    payAccount: "123456"
+    payAccount: "123456",
+    receiveAccount: {
+      type: "alipay",
+      number: ""
+    }
   }
 };
 
