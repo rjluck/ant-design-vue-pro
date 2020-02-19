@@ -32,6 +32,13 @@ Vue.use(Auth); //注册指令
 Vue.use(Form);
 Vue.use(Input);
 Vue.use(Select);
+
+//引入IconFont图标库
+const IconFont = Icon.createFromIconfontCN({
+  scriptUrl: "//at.alicdn.com/t/font_1646499_k0pipjh9yhs.js"
+});
+Vue.component("IconFont", IconFont);
+
 new Vue({
   router,
   store,

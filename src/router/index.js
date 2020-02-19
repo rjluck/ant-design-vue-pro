@@ -109,17 +109,18 @@ const routes = [
       }
     ]
   },
-  {
-    path: "*",
-    name: "403",
-    hideInMenu: true,
-    component: Forbidden
-  },
+
   {
     path: "*",
     name: "404",
     hideInMenu: true,
     component: NotFound
+  },
+  {
+    path: "*",
+    name: "403",
+    hideInMenu: true,
+    component: Forbidden
   }
   // {
   //   path: "/",

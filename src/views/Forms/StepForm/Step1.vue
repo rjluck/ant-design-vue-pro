@@ -51,7 +51,8 @@
   </div>
 </template>
 <script>
-import ReceiveAccount from "../../../components/ReceiveAccount";
+// import ReceiveAccount from "../../../components/ReceiveAccount";
+import ReceiveAccount from "@/components/ReceiveAccount";
 export default {
   components: {
     ReceiveAccount
