@@ -7,7 +7,7 @@
       :visible="visible"
     >
       <template v-slot:handle>
-        <div class="handle" @click="visible = !visible">
+        <div class="setting-drawer-handle" @click="visible = !visible">
           <a-icon :type="visible ? 'close' : 'setting'" />
         </div>
       </template>
@@ -54,7 +54,9 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lange="less">
+/* 
+<style lange="less" src="./index.less">
 .handle {
   position: absolute;
   top: 240px;
@@ -67,5 +69,5 @@ export default {
   text-align: center;
   line-height: 48px;
   border-radius: 3px 0 0 3px;
-}
+} */
 </style>
