@@ -5,6 +5,9 @@ module.exports = {
         loaderOptions: {
             less: {
                 // 这里的选项会传递给 less-loader
+                modifyVars: {
+                    'primary-color': '#1DA57A',
+                },
                 javascriptEnabled: true
             }
         }
