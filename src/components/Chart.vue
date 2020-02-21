@@ -2,10 +2,15 @@
   <div ref="chartDom"></div>
 </template>
 <script>
-import echarts from "echarts";
-import { addListener, removeListener } from "resize-detector";
-import debounce from "lodash/debounce";
+// import echarts from "echarts";
+import echarts from 'echarts/lib/echarts'; //引入echarts基础库
+import 'echarts/lib/chart/bar';
+import 'echarts/lib/component/title';
+
+import { addListener, removeListener } from 'resize-detector';
+import debounce from 'lodash/debounce';
 //var echarts = require('echarts');
+
 export default {
   props: {
     options: {
@@ -47,7 +52,7 @@ export default {
   },
   methods: {
     resize() {
-      console.log("resize");
+      console.log('resize');
       this.chart.resize();
     },
     renderChart() {
@@ -55,7 +60,7 @@ export default {
       //var myChart = echarts.init(document.getElementById('main'));
       this.chart = echarts.init(this.$refs.chartDom);
       // 绘制图表
-      console.log("this.options", this.options);
+      console.log('this.options', this.options);
       this.chart.setOption(this.options);
     }
   }

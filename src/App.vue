@@ -13,7 +13,8 @@
 <script>
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
 import enUS from 'ant-design-vue/lib/locale-provider/en_US';
-import moment from 'moment';
+import moment from 'moment'; //默认引入的是英文的
+import 'moment/locale/zh-cn'; //手动引入中文包
 export default {
   data() {
     return {

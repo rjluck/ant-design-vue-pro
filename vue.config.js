@@ -1,6 +1,7 @@
 ///* eslint-disable prettier/prettier */
 // vue.config.js
 const path = require("path");
+const webpack = require('webpack');
 //配置主题插件使用
 const AntDesignThemePlugin = require('antd-theme-webpack-plugin');
 
@@ -29,7 +30,12 @@ module.exports = {
         }
     },
     configureWebpack: {
-        plugins: [themePlugin]
+        plugins: [themePlugin, new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),],
+        resolve: {
+            alias: {
+                "@ant-design/icons/lib/dist$": path.resolve(__dirname, "./src/icons.js")
+            }
+        }
     },
     chainWebpack: config => {
         const svgRule = config.module.rule('svg')
