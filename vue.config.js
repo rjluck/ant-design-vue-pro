@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+///* eslint-disable prettier/prettier */
 // vue.config.js
 const path = require("path");
 //配置主题插件使用

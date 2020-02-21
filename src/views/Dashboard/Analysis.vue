@@ -1,11 +1,16 @@
 <template>
   <div>
-    <Chart :options="chartOption" style="height:400px" />
+    {{$t('message')['app.dashboard.analysis.timeLabel']}}
+    <a-date-picker></a-date-picker>
+    <Chart
+      :options="chartOption"
+      style="height:400px"
+    />
   </div>
 </template>
 <script>
-import Chart from "../../components/Chart";
-import request from "../../utils/request";
+import Chart from '../../components/Chart';
+import request from '../../utils/request';
 // import random from 'lodash/random';
 // import axios from 'axios';
 export default {
@@ -51,26 +56,26 @@ export default {
     getChartData() {
       //
       request({
-        url: "/api/dashboard/chart",
-        method: "get",
+        url: '/api/dashboard/chart',
+        method: 'get',
         params: {
           ID: 6666
         }
       }).then(response => {
-        console.log("response", response);
+        console.log('response', response);
         this.chartOption = {
           title: {
-            text: "ECharts 入门示例"
+            text: 'ECharts 入门示例'
           },
           tooltip: {},
           xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+            data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
           },
           yAxis: {},
           series: [
             {
-              name: "销量",
-              type: "bar",
+              name: '销量',
+              type: 'bar',
               data: response.data
             }
           ]
