@@ -24,6 +24,9 @@ import Auth from "./directives/auth"; //引入权限指令
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import VueHighlightJS from 'vue-highlightjs';
+import "highlight.js/styles/github.css";//引入highlightjs样式，此时代码片段有高亮
+
 //import 'ant-design-vue/dist/antd.less';//全局注册组件
 //import 'ant-design-vue/lib/button/style'; //按需注册组件
 Vue.config.productionTip = false;
@@ -44,6 +47,8 @@ Vue.use(Dropdown);
 Vue.use(DatePicker);
 Vue.use(VueI18n);
 //国际化插件实例化
+Vue.use(VueHighlightJS);
+
 const i18n = new VueI18n({
   locale: queryString.parse(location.search).locale || "zhCN",  //提供一个默认语言，默认语言要从url中取，此时需要一个第三方库queryString解析url
   messages: {//配置语言包

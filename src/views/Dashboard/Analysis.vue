@@ -6,6 +6,7 @@
       :options="chartOption"
       style="height:400px"
     />
+    <pre v-highlightjs="chartCode"><code class="html"></code></pre>
   </div>
 </template>
 <script>
@@ -13,12 +14,15 @@ import Chart from '../../components/Chart';
 import request from '../../utils/request';
 // import random from 'lodash/random';
 // import axios from 'axios';
+import chartCode from '!!raw-loader!../../components/Chart';
+
 export default {
   components: {
     Chart
   },
   data() {
     return {
+      chartCode,
       chartOption: {
         // title: {
         //   text: 'ECharts 入门示例'
